@@ -1,20 +1,23 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace PetsOpgave
 {
-    public class Animal
+    public class Animal : INotifyPropertyChanged
     {
         private int heads;
         private int feet;
-        
+        private int ageInYears;
+
         public Animal(int heads, int feet)
         {
             this.heads = heads;
             this.feet = feet;
+            this.ageInYears = 0;
         }
 
         public Animal(int feet) : this(1, feet: feet) { }
@@ -30,6 +33,26 @@ namespace PetsOpgave
             get { return feet; }
         }
 
+        public int AgeInYears
+        {
+            get { return ageInYears; }
+            set
+            {
+                this.ageInYears = value;
+                OnPropertyChanged(nameof(AgeInYears));
+            }
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        private void OnPropertyChanged(string propertyName)
+        {
+            var handler = PropertyChanged;
+            if (handler != null)
+            {
+                handler.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            }
+        }
         public static List<Animal> CreateFarm()
         {
             var animals = new List<Animal>();
@@ -46,8 +69,7 @@ namespace PetsOpgave
             List<Animal> farm = Animal.CreateFarm();
 
             Animal dyr = new Animal(2);
-            dyr.Feet;
-
+            int foedder = dyr.Feet;
         }
     }
 }
