@@ -14,7 +14,7 @@ namespace PetsOpgave
         static void Main(string[] args)
         {
 
-            Species Animal1 = new Species("cat", 2, 4);
+            Species Animal1 = new Species("cat", 2, 4, AnimalTypeEnum.Bird);
             Console.WriteLine("Name: {0}, Eyes: {1}, Legs: {2}", Animal1.Name, Animal1.NumberOEyes, Animal1.NumberOfLegs);
 
             Console.WriteLine("******************");
@@ -35,7 +35,8 @@ namespace PetsOpgave
             p1.NameChanged += Allan_NameChanged;
             p1.Name = "Hr. Badehætte";
             Console.WriteLine("*****************");
-            Console.WriteLine("Animal says: {0}", Pets.Talk());
+            Console.WriteLine("Petty says: {0}", Petty1.Talk()); // Petty1 taler og siger Pip! hvis Petty1 er Bird.
+            Console.ReadKey();
         }
 
         //EventHandler
