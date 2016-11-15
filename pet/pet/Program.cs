@@ -34,6 +34,8 @@ namespace PetsOpgave
 
             p1.NameChanged += Allan_NameChanged;
             p1.Name = "Hr. Badehætte";
+            Console.WriteLine("*****************");
+            Console.WriteLine("Animal says: {0}", Pets.Talk());
         }
 
         //EventHandler

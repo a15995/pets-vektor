@@ -37,5 +37,14 @@ namespace PetsOpgave
         //public Pets(string Name, int NumberOfEyes, int NumberOfLegs) : base(Name, NumberOfEyes, NumberOfLegs)
         //{
         //}
+
+        public String Talk()
+        {
+            if (species.AnimalType == AnimalTypeEnum.Bird)
+            {
+                return "Pip pip!";
+            }
+            return null;
+        }
     }
 }
