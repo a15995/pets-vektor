@@ -116,18 +116,18 @@ namespace PetsOpgave
 
     public static class PersonExtensions
     {
-        public static List<Person> FilterOut(this List<Person> personlist, Filter filter)
+        public static List<Person> FilterOut(this List<Person> personlist, Filter filter) // Filtrer personer baseret på delegate (filter = kommandoer)
         {
-            var negativliste = new List<Person>();
+            var positivliste = new List<Person>();
             foreach (Person person in personlist)
             {
-                if (filter.Invoke(person))
+                if (filter.Invoke(person)) // Hvis filter returnerer true
                 {
-                    negativliste.Add(person);
+                    positivliste.Add(person); // så tilføj til listen.
                 }
 
             }
-            return negativliste;
+            return positivliste;
         }
     }
 }

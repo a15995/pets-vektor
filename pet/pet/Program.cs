@@ -47,7 +47,7 @@ namespace PetsOpgave
             locallist.Add(p1);
             locallist.Add(p2);
 
-            List<Person> result = locallist.FilterOut(person => (person.Name == "Egon") && (person.Pet.Species.NumberOEyes > 2));
+            List<Person> result = locallist.FilterOut(person => (person.Name == "Egon") && (person.Pet.Species.NumberOEyes > 2)); // Filtrerer locallist vha. delegates Egon and Eyes>2
 
             foreach (var p in result)
             {
