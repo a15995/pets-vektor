@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace PetsOpgave
 {
-    class Person : INotifyPropertyChanged
+    public class Person : INotifyPropertyChanged
     {
         private string name;
         private int yearOfBirth;
@@ -21,7 +21,7 @@ namespace PetsOpgave
             }
             set
             {
-                if(this.Name != value) // hvis værdi er forskellig
+                if (this.Name != value) // hvis værdi er forskellig
                 {
                     this.name = value;
                     OnNameChanged();
@@ -107,6 +107,27 @@ namespace PetsOpgave
             {
                 handler(this, new PropertyChangedEventArgs(propertyName));
             }
+        }
+    }
+
+    // Delegate
+        
+    public delegate bool Filter(Person person);
+
+    public static class PersonExtensions
+    {
+        public static List<Person> FilterOut(this List<Person> personlist, Filter filter)
+        {
+            var negativliste = new List<Person>();
+            foreach (Person person in personlist)
+            {
+                if (filter.Invoke(person))
+                {
+                    negativliste.Add(person);
+                }
+
+            }
+            return negativliste;
         }
     }
 }

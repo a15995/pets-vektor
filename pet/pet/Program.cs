@@ -36,6 +36,25 @@ namespace PetsOpgave
             p1.Name = "Hr. Badehætte";
             Console.WriteLine("*****************");
             Console.WriteLine("Petty says: {0}", Petty1.Talk()); // Petty1 taler og siger Pip! hvis Petty1 er Bird.
+            Console.WriteLine("*****************");
+
+            Species Animal2 = new Species("Vulcan Dragon", 4, 6, AnimalTypeEnum.Fish);
+            Pets Petty2 = new Pets("Firehole", Animal2);
+            Person p2 = new Person("Egon", 1973, Petty2);
+            
+
+            var locallist = new List<Person>();
+            locallist.Add(p1);
+            locallist.Add(p2);
+
+            List<Person> result = locallist.FilterOut(person => (person.Name == "Egon") && (person.Pet.Species.NumberOEyes > 2));
+
+            foreach (var p in result)
+            {
+                Console.WriteLine("Name: " + p.Name);
+                Console.WriteLine("Name of pet: " + p.Pet.Name + " (" + p.Pet.Species.Name + ", " + p.Pet.Species.NumberOEyes + " eyes)");
+            }
+            Console.WriteLine("*****************");
             Console.ReadKey();
         }
 
