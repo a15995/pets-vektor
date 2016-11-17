@@ -38,23 +38,25 @@ namespace PetsOpgave
             Console.WriteLine("Petty says: {0}", Petty1.Talk()); // Petty1 taler og siger Pip! hvis Petty1 er Bird.
             Console.WriteLine("*****************");
 
-            Species Animal2 = new Species("Vulcan Dragon", 4, 6, AnimalTypeEnum.Fish);
-            Pets Petty2 = new Pets("Firehole", Animal2);
-            Person p2 = new Person("Egon", 1973, Petty2);
+            Species Animal2 = new Species("Vulcan Dragon", 4, 6, AnimalTypeEnum.Fish); // Tilføj ny race
+            Pets Petty2 = new Pets("Firehole", Animal2); // Tilføj nyt kæledyr
+            Person p2 = new Person("Egon", 1973, Petty2); // Tilføj ny person
             
 
-            var locallist = new List<Person>();
-            locallist.Add(p1);
-            locallist.Add(p2);
+            var list = new List<Person>(); // Opret ny liste
+            list.Add(p1); // Tilføj Person 1 til listen
+            list.Add(p2); // Tilføj Person 2 til listen
 
-            List<Person> result = locallist.FilterOut(person => (person.Name == "Egon") && (person.Pet.Species.NumberOEyes > 2)); // Filtrerer locallist vha. delegates Egon and Eyes>2
+            List<Person> result = list.FilterOut(person => (person.Name == "Egon") && (person.Pet.Species.NumberOEyes > 2)); // Filtrerer locallist vha. delegates Egon and Eyes>2
+            Console.WriteLine("Dear Console. Please give me Persons with Name Egon who have Pets with more than 2 eyes!");
 
-            foreach (var p in result)
+            foreach (var p in result) // For hvert tilfælde i det filtrerede resultat
             {
                 Console.WriteLine("Name: " + p.Name);
                 Console.WriteLine("Name of pet: " + p.Pet.Name + " (" + p.Pet.Species.Name + ", " + p.Pet.Species.NumberOEyes + " eyes)");
+                Console.WriteLine("*****************");
             }
-            Console.WriteLine("*****************");
+            
             Console.ReadKey();
         }
 
