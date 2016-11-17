@@ -110,7 +110,7 @@ namespace PetsOpgave
         }
     }
 
-    // Delegate
+    // Delegates
         
     public delegate bool Filter(Person person);
 

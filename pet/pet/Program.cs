@@ -42,6 +42,7 @@ namespace PetsOpgave
             Pets Petty2 = new Pets("Firehole", Animal2); // Tilføj nyt kæledyr
             Person p2 = new Person("Egon", 1973, Petty2); // Tilføj ny person
             
+            // Delegates
 
             var list = new List<Person>(); // Opret ny liste
             list.Add(p1); // Tilføj Person 1 til listen
