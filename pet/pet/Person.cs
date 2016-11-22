@@ -130,4 +130,36 @@ namespace PetsOpgave
             return positivliste;
         }
     }
+
+    // Depedency Injection, Modul #4 slides 60-61 (opgave I+II)
+
+    public class PrimeGenerator
+    {
+        private List<int> knownPrimes;
+
+        public List<int> KnownPrimes
+        {
+            get;
+        }
+
+        public int GetNextPrime()
+        {
+            return 32;
+        }
+    }
+
+    public class CertificateGenerator
+    {
+        private PrimeGenerator primeGenerator = new PrimeGenerator();
+
+        public void GenerateCertificate()
+        {
+            primeGenerator.GetNextPrime();
+        }
+
+        public class IPrimeGenerator : PrimeGenerator
+        {
+
+        }
+    }
 }

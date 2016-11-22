@@ -57,11 +57,20 @@ namespace PetsOpgave
                 Console.WriteLine("Name of pet: " + p.Pet.Name + " (" + p.Pet.Species.Name + ", " + p.Pet.Species.NumberOEyes + " eyes)");
                 Console.WriteLine("*****************");
             }
-            
+
+            // Depedency Injection, Modul #4 slides 60-61 (opgave I+II)
+
+            var prime = new List<PrimeGenerator>();
+            prime.Add(1);
+            prime.Add(2);
+            prime.Add(3);
+            prime.Add(5);
+
+
             Console.ReadKey();
         }
 
-        //EventHandler
+        // EventHandler
 
         private static void Allan_NameChanged(object sender, string e)
         {
