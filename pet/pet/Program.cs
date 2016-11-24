@@ -15,12 +15,12 @@ namespace PetsOpgave
         {
 
             Species Animal1 = new Species("cat", 2, 4, AnimalTypeEnum.Bird);
-            Console.WriteLine("Name: {0}, Eyes: {1}, Legs: {2}", Animal1.Name, Animal1.NumberOEyes, Animal1.NumberOfLegs);
+            Console.WriteLine("Name: {0}, Eyes: {1}, Legs: {2}", Animal1.Name, Animal1.NumberOfEyes, Animal1.NumberOfLegs);
 
             Console.WriteLine("******************");
 
             Pets Petty1 = new Pets("Bob", Animal1);
-            Console.WriteLine(Petty1.Name, Petty1.Species.NumberOEyes, Petty1.Species.NumberOfLegs);
+            Console.WriteLine(Petty1.Name, Petty1.Species.NumberOfEyes, Petty1.Species.NumberOfLegs);
             Console.WriteLine("*****************");
             Person p1 = new Person("Allan", 1968, Petty1);
             //p1.Name = "Allan";
@@ -48,17 +48,17 @@ namespace PetsOpgave
             list.Add(p1); // Tilføj Person 1 til listen
             list.Add(p2); // Tilføj Person 2 til listen
 
-            List<Person> result = list.FilterOut(person => (person.Name == "Egon") && (person.Pet.Species.NumberOEyes > 2)); // Filtrerer locallist vha. delegates Egon and Eyes>2
+            List<Person> result = list.FilterOut(person => (person.Name == "Egon") && (person.Pet.Species.NumberOfEyes > 2)); // Filtrerer locallist vha. delegates Egon and Eyes>2
             Console.WriteLine("Dear Console. Please give me Persons with Name Egon who have Pets with more than 2 eyes!");
 
             foreach (var p in result) // For hvert tilfælde i det filtrerede resultat
             {
                 Console.WriteLine("Name: " + p.Name);
-                Console.WriteLine("Name of pet: " + p.Pet.Name + " (" + p.Pet.Species.Name + ", " + p.Pet.Species.NumberOEyes + " eyes)");
+                Console.WriteLine("Name of pet: " + p.Pet.Name + " (" + p.Pet.Species.Name + ", " + p.Pet.Species.NumberOfEyes + " eyes)");
                 Console.WriteLine("*****************");
             }
 
-            // Depedency Injection, Modul #4 slides 60-61 (opgave I+II)
+            // Dependency Injection, Modul #4 slides 60-61 (opgave I+II)
 
             var prime = new List<PrimeGenerator>();
             prime.Add(1);

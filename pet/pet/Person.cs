@@ -63,7 +63,7 @@ namespace PetsOpgave
         }
         public int GetEyes()
         {
-            return this.Pet.Species.NumberOEyes;
+            return this.Pet.Species.NumberOfEyes;
         }
         public Person(string name)
         {
@@ -131,7 +131,7 @@ namespace PetsOpgave
         }
     }
 
-    // Depedency Injection, Modul #4 slides 60-61 (opgave I+II)
+    // Dependency Injection, Modul #4 slides 60-61 (opgave I+II)
 
     public class PrimeGenerator
     {

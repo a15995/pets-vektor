@@ -33,7 +33,7 @@ namespace PetsOpgave
             }
         }
 
-        public int NumberOEyes
+        public int NumberOfEyes
         {
             get
             {
